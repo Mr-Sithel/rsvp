@@ -132,9 +132,9 @@ local uiGetGitHubData = function()
         UI.Text('- NOT download files to your computer.')
         UI.Text('')
 
-        if UI.Button('Check for new RSVP releases.') then
-            Version.PullGithubData()
-            versionDataPulled = true
+        if UI.Button('Updates disabled, this is a forked version.') then
+            --Version.PullGithubData()
+            --versionDataPulled = true
         end
     end
 end
