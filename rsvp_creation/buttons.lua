@@ -6,6 +6,7 @@ Create.Buttons.Type =
     King   = 2,
     Wyrm   = 3,
     Custom = 4,
+    ToAU   = 5,
 }
 
 -- ------------------------------------------------------------------------------------------------------
@@ -98,6 +99,20 @@ Create.Buttons.Schedule = function(type, pass, name, date, time, customInfo)
                     local timerName = string.format("%s (%d/25)", name, i + 1)
 
                     Timers.Start(timerName, futureMinutes + (60 * i), name)
+                end
+            end
+        end
+
+    elseif type == Create.Buttons.Type.ToAU then
+        if UI.Button("6H5") then
+            if pass then
+                local timestamp      = Timers.MakeTimeTable(date, time)
+                local futureMinutes = (timestamp - os.time()) / 60
+
+                for i = 0, 4, 1 do
+                    local timerName = string.format("%s (%d/5)", name, i + 1)
+
+                    Timers.Start(timerName, futureMinutes + (360 * i), name)
                 end
             end
         end
