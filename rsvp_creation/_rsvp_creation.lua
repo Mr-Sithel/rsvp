@@ -114,6 +114,7 @@ local makeSpecificTimer = function()
         Create.Buttons.Schedule(Create.Buttons.Type.Normal, pass, name, date, time)
         UI.SameLine() Create.Buttons.Schedule(Create.Buttons.Type.King, pass, name, date, time)
         UI.SameLine() Create.Buttons.Schedule(Create.Buttons.Type.Wyrm, pass, name, date, time)
+        UI.SameLine() Create.Buttons.Schedule(Create.Buttons.Type.ToAU, pass, name, date, time)
 
         -- Display custom window buttons
         if UI.CollapsingHeader('Custom Windows') then
