@@ -219,7 +219,9 @@ Config.Display = function()
 
         Window.SetScaling()
 
-        if UI.Begin('RSVP Config', Config.Visible, Window.Window_Flags) then
+        local visible = UI.Begin('RSVP Config', Config.Visible, Window.Window_Flags)
+
+        if visible then
             RSVP.Config.X_Pos, RSVP.Config.Y_Pos = UI.GetWindowPos()
             Window.SetLegacyScaling()
 
@@ -231,8 +233,9 @@ Config.Display = function()
             end
 
             Window.SetLegacyScaling(Config.GetScale())
-            UI.End()
         end
+
+        UI.End()
 
         Window.SetScaling(Config.GetScale())
     end
