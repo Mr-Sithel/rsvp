@@ -144,7 +144,9 @@ Create.Display = function()
         UI.PushStyleColor(ImGuiCol_WindowBg, Window.Colors.DEFAULT)
         Window.SetScaling()
 
-        if UI.Begin('RSVP Creation', RSVP.Create.Visible, Window.Window_Flags) then
+        local visible = UI.Begin('RSVP Creation', RSVP.Create.Visible, Window.Window_Flags)
+
+        if visible then
             RSVP.Create.X_Pos, RSVP.Create.Y_Pos = UI.GetWindowPos()
             Window.SetLegacyScaling()
 
@@ -155,8 +157,9 @@ Create.Display = function()
             end
 
             Window.SetLegacyScaling(Config.GetScale())
-            UI.End()
         end
+
+        UI.End()
 
         Window.SetScaling(Config.GetScale())
         UI.PopStyleColor(1)
