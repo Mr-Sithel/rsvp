@@ -25,7 +25,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 addon.author  = 'Metra'
 addon.name    = 'rsvp'
-addon.version = '2026-08-22'
+addon.version = '2026-08-24'
 
 Settings = require('settings')
 UI       = require('imgui')
