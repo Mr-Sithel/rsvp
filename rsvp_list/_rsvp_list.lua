@@ -143,7 +143,9 @@ List.Display = function()
 
         Window.SetScaling()
 
-        if UI.Begin('RSVP Timer List', RSVP.List.Visible, windowFlags) then
+        local visible = UI.Begin('RSVP Timer List', RSVP.List.Visible, windowFlags)
+
+        if visible then
             RSVP.List.X_Pos, RSVP.List.Y_Pos = UI.GetWindowPos()
             Window.SetLegacyScaling()
 
@@ -175,9 +177,8 @@ List.Display = function()
 
                         if not RSVP.List.Apply_Filter then
                             duration = 0
-                        end -- Show everything.
+                        end
 
-                        -- Only show the earliest timer from a timer group (unless it's expanded) within filter time.
                         if duration < (RSVP.List.Hour_Filter * 3600) then
                             if not group or not blocked[group] or Timers.Groups.IsExpanded(group) then
                                 shownTimers = shownTimers + 1
@@ -192,7 +193,6 @@ List.Display = function()
                             end
                         end
 
-                        -- Block subsequent timers from the same group.
                         if group then
                             blocked[group] = true
                             collapsed[group] = true
@@ -212,8 +212,9 @@ List.Display = function()
             end
 
             Window.SetLegacyScaling(Config.GetScale())
-            UI.End()
         end
+
+        UI.End()
 
         Window.SetScaling(Config.GetScale())
         UI.PopStyleColor(2)
